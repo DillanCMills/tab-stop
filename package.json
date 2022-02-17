@@ -1,0 +1,87 @@
+{
+	"name": "tab-stop",
+	"displayName": "Tab Stop",
+	"description": "Utility extension to insert spaces on the current line to a user-configured column number",
+	"version": "1.0.0",
+	"keywords": ["tab", "stop", "indent", "tabstop", "column"],
+	"author": {
+		"name": "Dillan"
+	},
+	"publisher": "Dillan",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/DillanCMills/tab-stop.git"
+	},
+	"homepage": "https://github.com/DillanCMills/tab-stop/blob/main/README.md",
+	"bugs": {
+		"url": "https://github.com/DillanCMills/tab-stop/issues"
+	},
+	"license": "SEE LICENSE IN LICENSE.txt",
+	"engines": {
+		"vscode": "^1.64.0"
+	},
+	"categories": [
+		"Formatters"
+	],
+	"activationEvents": [
+		"onCommand:tab-stop.indent"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "tab-stop.indent",
+				"title": "Indent to Column"
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "Tab Stop",
+			"properties": {
+				"tab-stop.columns": {
+					"scope": "window",
+					"type": "array",
+					"items": {
+						"type": "number"
+					},
+					"default": [
+						80
+					],
+					"description": "The column numbers to indent to."
+				},
+				"tab-stop.character": {
+					"scope": "window",
+					"type": "string",
+					"default": " ",
+					"description": "The character to use for indenting"
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run esbuild-base -- --minify",
+    "test-compile": "tsc -p ./",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "yarn run compile && yarn run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js",
+    "esbuild-base": "esbuild ./src/extension.ts --bundle --outfile=out/main.js --external:vscode --format=cjs --platform=node",
+    "esbuild": "npm run esbuild-base -- --sourcemap",
+    "esbuild-watch": "npm run esbuild-base -- --sourcemap --watch"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.2.0",
+		"@types/mocha": "^9.0.0",
+		"@types/node": "14.x",
+		"@types/vscode": "^1.64.0",
+		"@typescript-eslint/eslint-plugin": "^5.9.1",
+		"@typescript-eslint/parser": "^5.9.1",
+		"@vscode/test-electron": "^2.0.3",
+		"esbuild": "^0.14.22",
+		"eslint": "^8.6.0",
+		"glob": "^7.2.0",
+		"mocha": "^9.1.3",
+		"typescript": "^4.5.4"
+	}
+}
