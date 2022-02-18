@@ -11,10 +11,10 @@ If your cursor is past the last tab stop you provide, nothing will be filled. If
 Example:
 
 Turn this:
-\!\[Before\]\(images/before.png\)
+![Before](images/before.png)
 
 Into this:
-\!\[After\]\(images/after.png\)
+![After](images/after.png)
 
 Note: this is not an auto-formatter. I had to place cursors at each appropriate place in the example. I recommend binding the `tab-stop.indent` command to a keybinding so it is easy to invoke as you type. 
 
