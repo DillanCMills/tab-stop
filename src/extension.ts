@@ -28,7 +28,7 @@ export function activate(context: vscode.ExtensionContext) {
 			return;
 		}
 
-		userEndIndents.sort();
+		userEndIndents.sort((a, b) => a - b);
 
 		const document = editor.document;
 		editor.edit(editBuilder => {

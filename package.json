@@ -2,7 +2,7 @@
 	"name": "tab-stop",
 	"displayName": "Tab Stop",
 	"description": "Utility extension to insert spaces on the current line to a user-configured column number",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"keywords": ["tab", "stop", "indent", "tabstop", "column"],
 	"author": {
 		"name": "Dillan"

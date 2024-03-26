@@ -33,6 +33,10 @@ None
 
 ## Release Notes
 
+### 1.0.1
+
+Fixed bug in tab-stop column sorting to handle values less than 10 and greater than 99.
+
 ### 1.0.0
 
 Initial release of Tab Stop
